@@ -1,2 +1,2 @@
-# wfcw
+# WFCW
 WarFront: Cold War
