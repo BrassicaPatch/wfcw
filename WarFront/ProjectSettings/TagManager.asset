@@ -6,6 +6,7 @@ TagManager:
   tags:
   - state
   - country
+  - ideology
   layers:
   - Default
   - TransparentFX
