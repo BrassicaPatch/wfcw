@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
         foreach ( var sI in GameObject.FindGameObjectsWithTag("state")) { states.Add(sI); }
         foreach ( var cI in GameObject.FindGameObjectsWithTag("country")) { countries.Add(cI);  }
 
-        foreach (var c in countries)
+        /*foreach (var c in countries)
         {
             var country = c.GetComponent<country>();
             if (country.leaning == "")
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
                     else { country.leaning = "Neutral State"; }
                 }
             }
-        }
+        }*/
     }
 
 }
