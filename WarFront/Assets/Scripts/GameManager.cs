@@ -19,49 +19,17 @@ public class GameManager : MonoBehaviour
         foreach ( var sI in GameObject.FindGameObjectsWithTag("state")) { states.Add(sI); }
         foreach ( var cI in GameObject.FindGameObjectsWithTag("country")) { countries.Add(cI);  }
 
-        /*foreach (var c in countries)
+        foreach (var c in countries)
         {
             var country = c.GetComponent<country>();
-            if (country.leaning == "")
-            {
-                if (country.ideology.GetComponent<ideology>().name == "Democracy")
-                {
-                    if (country.lean > 5)
-                    {
-                        country.leaning = "Pro American Democracy";
-                    }
-                    else if (country.lean < -5)
-                    {
-                        country.leaning = "Anti American Democracy";
-                    }
-                    else { country.leaning = "Neutral Democracy"; }
-                }
-                else if (country.ideology.GetComponent<ideology>().name == "Communism")
-                {
-                    if (country.lean > 5)
-                    {
-                        country.leaning = "Pro Soviet Communism";
-                    }
-                    else if (country.lean < -5)
-                    {
-                        country.leaning = "Anti Soviet Communism";
-                    }
-                    else { country.leaning = "Neutral Communism"; }
-                }
-                else
-                {
-                    if (country.lean > 5)
-                    {
-                        country.leaning = "Pro Western State";
-                    }
-                    else if (country.lean < -5)
-                    {
-                        country.leaning = "Pro Eastern State";
-                    }
-                    else { country.leaning = "Neutral State"; }
-                }
-            }
-        }*/
+            if (country.lean > 2) { country.leaning = "Slightly Pro-West"; }
+            else if (country.lean < -2) { country.leaning = "Slightly Pro-East"; }
+            else if (country.lean >= 5) { country.leaning = "Pro-West"; }
+            else if (country.lean <= -5) { country.leaning = "Pro-East"; }
+            else if (country.lean >= 8) { country.leaning = "Strong Pro-West"; }
+            else if (country.lean <= -8) { country.leaning = "Strong Pro-East"; }
+            else { country.leaning = "Neutral"; }
+        }
     }
 
 }

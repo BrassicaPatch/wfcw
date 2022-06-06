@@ -10,7 +10,7 @@ public class state : MonoBehaviour
     public int population;
 
     public GameObject owner;
-    public int occupyValue;
+    public int occupyCost;
     public List<GameObject> cores = new List<GameObject>();
 
     public List<GameObject> resources = new List<GameObject>();
