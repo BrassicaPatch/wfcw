@@ -91,6 +91,11 @@ public class shader : MonoBehaviour
 
     }
 
+    void Start()
+    {
+        cvars();
+        uPalette();
+    }
 
     void Update()
     {
@@ -135,7 +140,7 @@ public class shader : MonoBehaviour
             }
         }
 
-        if (Application.isEditor)
+        if (Application.isEditor && !Application.isPlaying)
         {
             if (material == null || mainTex == null || mainArr == null || remapTex == null || paletteTex == null || stateRef.Count == 0)
             {
@@ -189,7 +194,7 @@ public class shader : MonoBehaviour
         material.SetTexture("_RemapTex", remapTex);
     }
 
-    void uPalette()
+    public void uPalette()
     {
         paletteArr = new Color32[256 * 256];
         for (int i = 0; i < paletteArr.Length; i++)
@@ -201,6 +206,48 @@ public class shader : MonoBehaviour
             if (remapStateColorRef.ContainsKey(checkRemap))
             {
                 paletteArr[i] = stateRef[remapStateColorRef[checkRemap]].GetComponent<state>().owner.GetComponent<country>().color;
+            }
+            else
+            {
+                paletteArr[i] = new Color32(255, 255, 255, 255);
+            }
+        }
+
+        paletteTex = new Texture2D(256, 256, TextureFormat.RGBA32, false);
+        paletteTex.filterMode = FilterMode.Point;
+        paletteTex.SetPixels32(paletteArr);
+        paletteTex.Apply(false);
+        material.SetTexture("_PaletteTex", paletteTex);
+    }
+
+    public void leanPalette()
+    {
+        paletteArr = new Color32[256 * 256];
+        for (int i = 0; i < paletteArr.Length; i++)
+        {
+            var x = (byte)(i % 256); var y = (byte)(i / 256);
+
+
+            var checkRemap = new Color32(x, y, 0, 255); //remapTex.GetPixel(x, y);
+            if (remapStateColorRef.ContainsKey(checkRemap))
+            {
+                var country = stateRef[remapStateColorRef[checkRemap]].GetComponent<state>().owner.GetComponent<country>();
+
+                if (country.lean > 2)
+                    paletteArr[i] = new Color32(120, 154, 192, 255);
+                if (country.lean >= 5)
+                    paletteArr[i] = new Color32(64, 126, 196, 255);
+                if (country.lean >= 8)
+                    paletteArr[i] = new Color32(0, 93, 197, 255);
+                if (country.lean < -2)
+                    paletteArr[i] = new Color32(229, 115, 115, 255);
+                if (country.lean <= -5)
+                    paletteArr[i] = new Color32(239, 67, 67, 255);
+                if (country.lean <= -8)
+                    paletteArr[i] = new Color32(192, 0, 0, 255);
+                if (country.lean >= -2 && country.lean <= 2)
+                    paletteArr[i] = new Color32(197, 197, 197, 255);
+
             }
             else
             {

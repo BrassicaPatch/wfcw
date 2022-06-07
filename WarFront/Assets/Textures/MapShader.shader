@@ -54,7 +54,11 @@ Shader "Unlit/MapShader"
                 fixed4 col = tex2D(_MainTex, i.uv);
 
                 fixed4 index = tex2D(_RemapTex, i.uv);
+
+                //var GM = GameObject.Find("GameManager").GetComponent<GameManager>();
+                //if (GM.mapView == 0)
                 return tex2D(_PaletteTex, index.xy * 255.0 / 256.0 + float2(0.001953125, 0.001953125));
+
 
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);

@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject devCountry;
 
     [Header("Game")]
+    public int mapView = 0;
     public GameObject player;
 
     public List<GameObject> states = new List<GameObject>();
