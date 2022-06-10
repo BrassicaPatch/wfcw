@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Game")]
     public int mapView = 0;
+    public int turn = 0;
     public GameObject player;
 
     public List<GameObject> states = new List<GameObject>();

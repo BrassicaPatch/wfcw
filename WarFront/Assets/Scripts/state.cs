@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class state : MonoBehaviour
@@ -13,6 +14,15 @@ public class state : MonoBehaviour
     public int occupyCost;
     public List<GameObject> cores = new List<GameObject>();
 
-    public List<GameObject> resources = new List<GameObject>();
+    [Header("Resources")]
+
+    public int oil = 0;
+    public int food = 0;
+    public int rawMaterial = 0;
+    public int consumerGoods = 0;
+
+    //[CustomPropertyDrawer(typeof(resource))]
+    //public Dictionary<GameObject, int> resource = new Dictionary<GameObject, int>();
+
     public GameObject location;
 }
