@@ -32,6 +32,42 @@ public class GameManager : MonoBehaviour
             else if (country.lean <= -8) { country.leaning = "Strong Pro-East"; }
             else { country.leaning = "Neutral"; }
         }
+
+        debugCheck();
+    }
+
+    public void debugCheck()
+    {
+        Debug.Log("Debug Color Check Called");
+        var dic = new Dictionary<string, Color32>();
+        var checkL = new List<string>();
+
+        foreach(var c in countries)
+        {
+            dic.Add(c.GetComponent<country>().name, c.GetComponent<country>().color);
+        }
+
+        foreach (var c in dic)
+        {
+            checkL.Add(c.Key);
+        }
+
+        int x = 0;
+        while (x < checkL.Count)
+        {
+            Color32 check = dic[checkL[x]];
+
+            foreach (var c in dic)
+            {
+                Color32 check2 = c.Value; //new Color32((byte)c.Value[0], (byte)c.Value[1], (byte)c.Value[2], 255);
+                if (check.Equals(check2) && !(checkL[x] == c.Key))
+                {
+                    Debug.Log(checkL[x] + "'s color is the same as: " + c.Key);
+                    checkL.Remove(c.Key);
+                }
+            }
+            x++;
+        }
     }
 
 }

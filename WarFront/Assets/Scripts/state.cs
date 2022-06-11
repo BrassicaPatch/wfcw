@@ -8,10 +8,12 @@ public class state : MonoBehaviour
     public Color32 color;
 
     public string name;
-    public int population;
+    public float population;
+    public int localDevelopment;
 
     public GameObject owner;
     public int occupyCost;
+    public int occupyResistance;
     public List<GameObject> cores = new List<GameObject>();
 
     [Header("Resources")]

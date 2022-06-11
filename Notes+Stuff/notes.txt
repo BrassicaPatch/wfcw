@@ -1,0 +1,31 @@
+Current: ==
+
+	-Actions Cost Money
+
+	-Income determined by population, development index, industry,
+		corruption, trade, etc
+
+	-Lean is determined by trade and influence by other countries and
+		what ideology they are.
+
+		-More lean makes it easier to switch ideology of country,
+		 If same ideology, easier to change lean.
+		 Lean Scale: -10 (Pro-East) - 10 (Pro-West)
+
+	-Occupation
+		At 50 they petition for independence.
+		At 70 and over, increasing chance of declaring independence.
+
+			Granting independence before 50, country ideology and
+			lean is that of master. At 50 - 60 Neutral, 60 and
+			above they lean towards the opposite of master.
+
+
+
+
+
+Ideas for thought: ==
+
+	-Spheres of Influence
+		(Small countries can have local spheres of influence. Arab
+			leagues and stuff like that)
