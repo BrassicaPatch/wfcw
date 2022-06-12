@@ -99,9 +99,8 @@ public class shader : MonoBehaviour
 
     void Update()
     {
-        var cU = GameObject.Find("CountryMenu").GetComponent<countryUI>();
-        var sU = GameObject.Find("StateMenu").GetComponent<stateUI>();
-        if (Input.GetMouseButtonDown(0) && !cU.countryMenu.activeInHierarchy)
+        var uM = GameObject.Find("UI Canvas").GetComponent<uiManager>();
+        if (Input.GetMouseButtonDown(0) && !uM.countryMenu.activeInHierarchy)
         {
             var mousePos = Input.mousePosition;
             var ray = Camera.main.ScreenPointToRay(mousePos);
@@ -117,10 +116,10 @@ public class shader : MonoBehaviour
 
                 var state = stateRef[remapStateColorRef[remapColor]];
 
-                sU.stateMenuShow(state);
+                uM.stateMenuShow(state);
             }
         }
-        if (Input.GetMouseButtonDown(1) && !cU.countryMenu.activeInHierarchy)
+        if (Input.GetMouseButtonDown(1) && !uM.countryMenu.activeInHierarchy)
         {
             var mousePos = Input.mousePosition;
             var ray = Camera.main.ScreenPointToRay(mousePos);
