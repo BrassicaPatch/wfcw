@@ -3,13 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class countryUI : MonoBehaviour
+public class uiManager : MonoBehaviour
 {
     [Header("Country UI")]
     public GameObject countryMenu;
     public GameObject countryName;
     public GameObject countryIdeology;
     public GameObject countryLeaning;
+
+    [Header("State UI")]
+    public GameObject stateMenu;
+    public GameObject stateName;
+    public GameObject stateOwner;
+
+    public void stateMenuShow(GameObject state) 
+    {
+        stateMenu.SetActive(true);
+        stateName.GetComponent<Text>().text = state.GetComponent<state>().name;
+        stateOwner.GetComponent<Text>().text = state.GetComponent<state>().owner.GetComponent<country>().name;
+
+    }
 
     public void countryMenuShow(GameObject country)
     {
